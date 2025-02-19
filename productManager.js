@@ -1,100 +1,52 @@
-class Product {
-  static dynamicID = 1;
-  static Products = [];
+import Product from product.js;
 
-  constructor(name, description, price, stock, onsale) {
-    if (
-      !name ||
-      !description ||
-      price == null ||
-      stock == null ||
-      onsale == null
-    ) {
-      throw new Error(
-        "All fields (name, description, price, stock, onsale) are required!"
-      );
-    }
+class ProductManager {
+  allProducts = [];
 
-    this.id = Product.dynamicID++;
-    this.name = name;
-    this.description = description;
-    this.price = price;
-    this.stock = stock;
-    this.onsale = onsale;
 
-    this.image = `images/bag${this.id}.jpg`;
-
-    Product.Products.push(this);
+  addProduct(product) {
+    this.allProducts.push(product);
+    console.log(`Product added: ${product.name} (ID: ${product.id})`);
   }
 
-  static addProduct(name, description, price, stock, onsale) {
-    try {
-      const newProduct = new Product(name, description, price, stock, onsale);
-      console.log(
-        `Product added: ${newProduct.name} (ID: ${newProduct.id})\nImage: ${newProduct.image}`
-      );
-    } catch (error) {
-      console.error(`Error adding product: ${error.message}`);
-    }
-  }
-
-  static getProductById(id) {
-    const product = Product.Products.find((prod) => prod.id === id);
+  getProductById(id) {
+    const product = this.allProducts.find((product) => product.id === id);
     if (product) {
-      console.log(
-        `Product Found: ${product.name} (ID: ${product.id})\nImage: ${product.image}`
-      );
+      console.log(`Product Found: ${product.name} (ID: ${product.id})`);
     } else {
       console.log("This product was not found.");
     }
+    return product;
   }
 
-  static listProducts() {
+  showProductById(id){
+    let product = this.getProductById(id);
+
+
+    
+  }
+
+  showAllProducts(){
     console.log("All Products:");
-    Product.Products.forEach((product) => {
+    this.allProducts.forEach((product) => {
       console.log(
-        `ID: ${product.id}, Name: ${product.name}, Image: ${product.image}`
+        "ID: " + product.id +
+        "\nName: " + product.name +
+        "\nDescription: " + product.description +
+        "\nImage: " + product.image +  
+        "\nPrice: $" + product.price +
+        "\nStock: " + product.stock +
+        "\nOn Sale: " + product.onsale + "\n"
       );
     });
   }
+
+
+
+
+
+
+
 }
 
-Product.addProduct(
-  "Adventure Backpack",
-  "Durable and waterproof.",
-  79.99,
-  15,
-  true
-);
-Product.addProduct(
-  "Hiking Backpack",
-  "Lightweight and rugged, designed for outdoor adventures.",
-  89.99,
-  20,
-  true
-);
-Product.addProduct(
-  "Laptop Backpack",
-  "Padded compartments for laptops up to 17 inches.",
-  69.99,
-  25,
-  false
-);
-Product.addProduct(
-  "Business Backpack",
-  "Elegant design with anti-theft features.",
-  99.99,
-  10,
-  true
-);
-Product.addProduct(
-  "Casual Daypack",
-  "Perfect for daily commuting and casual outings.",
-  39.99,
-  30,
-  false
-);
 
-Product.listProducts();
-Product.getProductById(3);
-Product.getProductById(9);
