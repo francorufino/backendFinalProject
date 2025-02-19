@@ -1,8 +1,7 @@
-import Product from product.js;
+const Product = require("./product.js");
 
 class ProductManager {
   allProducts = [];
-
 
   addProduct(product) {
     this.allProducts.push(product);
@@ -19,34 +18,32 @@ class ProductManager {
     return product;
   }
 
-  showProductById(id){
+  showProductById(id) {
     let product = this.getProductById(id);
-
-
-    
   }
 
-  showAllProducts(){
+  showAllProducts() {
     console.log("All Products:");
     this.allProducts.forEach((product) => {
       console.log(
-        "ID: " + product.id +
-        "\nName: " + product.name +
-        "\nDescription: " + product.description +
-        "\nImage: " + product.image +  
-        "\nPrice: $" + product.price +
-        "\nStock: " + product.stock +
-        "\nOn Sale: " + product.onsale + "\n"
+        "ID: " +
+          product.id +
+          "\nName: " +
+          product.name +
+          "\nDescription: " +
+          product.description +
+          "\nImage: " +
+          product.image +
+          "\nPrice: $" +
+          product.price +
+          "\nStock: " +
+          product.stock +
+          "\nOn Sale: " +
+          product.onsale +
+          "\n"
       );
     });
   }
-
-
-
-
-
-
-
 }
 
-
+export default ProductManager;

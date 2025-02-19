@@ -33,3 +33,5 @@ class Product {
     this.image = `images/bag${this.id}.jpg`;
   }
 }
+
+export default Product;
