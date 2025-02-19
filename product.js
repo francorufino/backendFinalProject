@@ -18,13 +18,11 @@ class Product {
       onsale == null
     ) {
       throw new Error(
-        alert(
-          "All fields (name, description, price, stock, onsale) are required!"
-        )
+        "All fields (name, description, price, stock, onsale) are required!"
       );
     }
 
-    this.#id = lastId++;
+    this.id = lastId++;
     this.name = name;
     this.description = description;
     this.price = price;
@@ -34,4 +32,4 @@ class Product {
   }
 }
 
-export default Product;
+module.exports = Product;
