@@ -1,0 +1,24 @@
+{
+  "name": "finalproject",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/francorufino/backendFinalProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/francorufino/backendFinalProject/issues"
+  },
+  "homepage": "https://github.com/francorufino/backendFinalProject#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
