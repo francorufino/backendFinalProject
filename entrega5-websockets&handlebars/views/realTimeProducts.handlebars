@@ -1,0 +1,37 @@
+<h1>Produtos (Actualizacao en tempo real)</h1>
+
+<form id="addProductForm">
+  <input type="text" name="title" placeholder="Nombre del producto" required />
+  <input type="number" name="price" placeholder="Precio" required />
+  <button type="submit">Agregar producto</button>
+</form>
+
+<ul id="productList">
+  {{#each products}}
+    <li>{{title}}
+      - ${{price}}
+      <button data-id="{{id}}" class="delete-btn">Eliminar</button></li>
+  {{/each}}
+</ul>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io(); const productListElem =
+  document.getElementById('productList'); const addForm =
+  document.getElementById('addProductForm'); addForm.addEventListener('submit',
+  event => { event.preventDefault(); const title = event.target.title.value;
+  const price = parseFloat(event.target.price.value); if (title.trim() !== '' &&
+  !isNaN(price)) { socket.emit('newProduct', { title: title.trim(), price: price
+  }); event.target.reset(); } }); // Attach event to initial delete buttons
+  document.querySelectorAll('.delete-btn').forEach(button => {
+  button.addEventListener('click', () => { const productId =
+  Number(button.dataset.id); socket.emit('deleteProduct', productId); }); });
+  socket.on('updateProducts', products => { productListElem.innerHTML = '';
+  products.forEach(prod => { const li = document.createElement('li');
+  li.textContent = prod.title + ' - $' + prod.price + ' '; const delButton =
+  document.createElement('button'); delButton.textContent = 'Eliminar';
+  delButton.dataset.id = prod.id; delButton.classList.add('delete-btn');
+  delButton.addEventListener('click', () => { socket.emit('deleteProduct',
+  prod.id); }); li.appendChild(delButton); productListElem.appendChild(li); });
+  });
+</script>
