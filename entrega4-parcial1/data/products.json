@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Camisa React Atualizada",
+    "description": "Descrição do Produto 1",
+    "code": "ABC123",
+    "price": 74.99,
+    "stock": 18,
+    "category": "categoria 1"
+  },
+  {
+    "id": 2,
+    "title": "Produto 2",
+    "description": "Descrição do Produto 2",
+    "code": "ABC123",
+    "price": 200,
+    "stock": 20,
+    "category": "categoria 2"
+  },
+  {
+    "id": 3,
+    "title": "Produto 3",
+    "description": "Descrição do Produto 3",
+    "code": "ABC123",
+    "price": 300,
+    "stock": 30,
+    "category": "categoria 3"
+  }
+]
