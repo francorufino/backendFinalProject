@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Adventure Backpack",
+    "description": "Durable and waterproof.",
+    "price": 79.99,
+    "stock": 15,
+    "onsale": true,
+    "image": "images/product1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Camping Backpack",
+    "description": "Lightweight and great for hiking.",
+    "price": 69.99,
+    "stock": 10,
+    "onsale": true,
+    "image": "images/product2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Tent",
+    "description": "Easy to pack and durable for camping.",
+    "price": 149.99,
+    "stock": 5,
+    "onsale": true,
+    "image": "images/product3.jpg"
+  }
+]
